@@ -17,7 +17,7 @@ RUN echo -e "[google-cloud-cli]\nname=Google Cloud CLI\nbaseurl=https://packages
 
 RUN dnf install -y dnf-utils && \
     yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo && \
-    dnf install -y terraform git vim curl jq maven azure-cli
+    dnf install -y terraform git vim curl jq azure-cli
 
 RUN wget "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz" && \
     tar -xvf openshift-client-linux.tar.gz && \
