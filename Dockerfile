@@ -15,7 +15,7 @@ RUN echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com
 RUN echo -e "[google-cloud-cli]\nname=Google Cloud CLI\nbaseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el8-x86_64\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=0\ngpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg\nhttps://packages.cloud.google.com/yum/doc/rpm-package-key.gpg"| tee /etc/yum.repos.d/google-cloud-sdk.repo
 
 
-RUN dnf upgrade rsync -y && dnf install -y dnf-utils && \
+RUN dnf update -y && dnf install -y dnf-utils && \
     yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo && \
     dnf install -y terraform git vim curl jq azure-cli
 
