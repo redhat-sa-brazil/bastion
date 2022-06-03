@@ -5,14 +5,15 @@ COPY requirements.txt /opt/bastion
 RUN  chown -R 1001:0 /opt/bastion
 
 RUN dnf update -y --allowerasing
-#Install requirements and awscli
+#install python requirements
 RUN pip install --upgrade pip && \
     pip install -r /opt/bastion/requirements.txt
 
-#Install requirements and azurecli
+#azurecli repo
 RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
-
 ADD azurecli.repo /etc/yum.repos.d/azurecli.repo
+
+#google repo
 ADD google-cloud-cli.repo /etc/yum.repos.d/google-cloud-sdk.repo
 
 
