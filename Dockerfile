@@ -2,7 +2,7 @@ FROM registry.access.redhat.com/ubi8/python-39:latest
 USER 0
 RUN mkdir -p /opt/bastion
 COPY requirements.txt /opt/bastion
-RUN  chown -R 1001:0 /opt/bastion
+RUN  chown -R 1001:1001 /opt/bastion
 
 RUN dnf update -y --allowerasing
 #install python requirements
