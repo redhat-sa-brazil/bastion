@@ -2,7 +2,7 @@ FROM registry.access.redhat.com/ubi8/python-39:latest
 USER 0
 RUN mkdir -p /opt/bastion
 COPY requirements.txt /opt/bastion
-RUN  chown -R 1001:1001 /opt/bastion
+RUN  chown -R 1001:0 /opt/bastion
 
 RUN dnf update -y --allowerasing
 #install python requirements
@@ -11,7 +11,7 @@ RUN pip install --upgrade pip && \
 
 #azurecli repo
 RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
-ADD azurecli.repo /etc/yum.repos.d/azurecli.repo
+RUN dnf install -y https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
 
 #google repo
 ADD google-cloud-cli.repo /etc/yum.repos.d/google-cloud-sdk.repo
@@ -39,6 +39,6 @@ RUN wget "https://github.com/skupperproject/skupper/releases/download/0.8.7/skup
     chmod u+x skupper && \
     mv skupper /usr/local/bin
 
-USER 1001
+#USER 1001
 WORKDIR /opt/bastion
 CMD ["sh", "-c", "tail -f /dev/null"]
