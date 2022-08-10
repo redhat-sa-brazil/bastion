@@ -34,7 +34,7 @@ RUN wget "https://mirror.openshift.com/pub/openshift-v4/clients/rosa/latest/rosa
     mv rosa /usr/local/bin
 
 #install skupper-cli
-RUN wget "https://github.com/skupperproject/skupper/releases/download/0.8.7/skupper-cli-1.0.2-linux-amd64.tgz" && \
+RUN wget "https://github.com/skupperproject/skupper/releases/download/1.0.2/skupper-cli-1.0.2-linux-amd64.tgz" && \
     tar -xvf skupper-cli-1.0.2-linux-amd64.tgz && \
     chmod u+x skupper && \
     mv skupper /usr/local/bin
