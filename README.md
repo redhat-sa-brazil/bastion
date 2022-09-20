@@ -48,6 +48,7 @@ Cloud CLI's
 - aws cli
 - gcloud-cli
 - azure-cli
+- ibmcloud cli
 - openshift
 - openshift-install
 - kubernetes

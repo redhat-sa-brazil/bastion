@@ -39,6 +39,12 @@ RUN wget "https://github.com/skupperproject/skupper/releases/download/1.0.2/skup
     chmod u+x skupper && \
     mv skupper /usr/local/bin
 
+#install ibmcloud sdk
+RUN wget "https://clis.cloud.ibm.com/install/linux" && \
+    mv linux ibmcloud-setup && \
+    chmod +x ibmcloud-setup && \
+    sh ibmcloud-setup
+
 #USER 1001
 WORKDIR /opt/bastion
 CMD ["sh", "-c", "tail -f /dev/null"]
