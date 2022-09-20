@@ -45,6 +45,7 @@ requirements.txt
 
 Cloud CLI's
 -
+- ibmcloud cli
 - aws cli
 - gcloud-cli
 - azure-cli
