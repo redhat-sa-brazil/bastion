@@ -45,10 +45,10 @@ requirements.txt
 
 Cloud CLI's
 -
-- ibmcloud cli
 - aws cli
 - gcloud-cli
 - azure-cli
+- ibmcloud cli
 - openshift
 - openshift-install
 - kubernetes
