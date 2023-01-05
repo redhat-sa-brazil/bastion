@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/python-39:latest
+FROM registry.access.redhat.com/ubi9/python-39:latest
 USER 0
 RUN mkdir -p /opt/bastion
 COPY requirements.txt /opt/bastion
