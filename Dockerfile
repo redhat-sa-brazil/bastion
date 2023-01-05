@@ -19,7 +19,7 @@ ADD google-cloud-cli.repo /etc/yum.repos.d/google-cloud-sdk.repo
 
 RUN dnf install -y dnf-utils && \
     yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo && \
-    dnf install -y terraform git vim curl jq azure-cli google-cloud-cli
+    dnf install -y terraform git vim jq azure-cli google-cloud-cli
 
 RUN wget "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz" && \
     tar -xvf openshift-client-linux.tar.gz && \
@@ -34,8 +34,8 @@ RUN wget "https://mirror.openshift.com/pub/openshift-v4/clients/rosa/latest/rosa
     mv rosa /usr/local/bin
 
 #install skupper-cli
-RUN wget "https://github.com/skupperproject/skupper/releases/download/1.0.2/skupper-cli-1.0.2-linux-amd64.tgz" && \
-    tar -xvf skupper-cli-1.0.2-linux-amd64.tgz && \
+RUN wget "https://github.com/skupperproject/skupper/releases/download/1.2.0/skupper-cli-1.2.0-linux-amd64.tgz" && \
+    tar -xvf skupper-cli-1.2.0-linux-amd64.tgz && \
     chmod u+x skupper && \
     mv skupper /usr/local/bin
 
@@ -44,6 +44,8 @@ RUN wget "https://clis.cloud.ibm.com/install/linux" && \
     mv linux ibmcloud-setup && \
     chmod +x ibmcloud-setup && \
     sh ibmcloud-setup
+
+RUN dnf clean all -y
 
 #USER 1001
 WORKDIR /opt/bastion
