@@ -15,9 +15,9 @@ podman exec -it bastion /bin/bash
 
 **2 - Customize container**
 
-The dockerfile file uses UBI(Universal Base Image) 8 as base image with python-3.9.
+The dockerfile file uses UBI(Universal Base Image) 9 as base image with python-3.9.
 
-> registry.access.redhat.com/ubi8/python-39:latest
+> registry.access.redhat.com/ubi9/python-39:latest
 
 **Python Requirements**
 
