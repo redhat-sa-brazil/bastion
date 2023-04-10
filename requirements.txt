@@ -1,4 +1,5 @@
 awscli
+azure-cli
 ansible
 ansible-core
 boto

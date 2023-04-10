@@ -11,11 +11,10 @@ RUN pip install --upgrade pip && \
 
 #azurecli repo
 RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
-RUN dnf install -y https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
+RUN dnf install -y https://packages.microsoft.com/config/rhel/9.0/packages-microsoft-prod.rpm
 
 #google repo
 ADD google-cloud-cli.repo /etc/yum.repos.d/google-cloud-sdk.repo
-
 
 RUN dnf install -y dnf-utils && \
     yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo && \
@@ -26,6 +25,11 @@ RUN wget "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/opens
      chmod u+x oc kubectl && \
      mv oc /usr/local/bin && \
      mv kubectl /usr/local/bin 
+
+RUN wget "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-install-linux.tar.gz" && \
+    tar -xvf openshift-install-linux.tar.gz && \
+     chmod u+x openshift-install && \
+     mv openshift-install /usr/local/bin &&
 
 #install rosa-cli
 RUN wget "https://mirror.openshift.com/pub/openshift-v4/clients/rosa/latest/rosa-linux.tar.gz" && \
@@ -44,8 +48,6 @@ RUN wget "https://clis.cloud.ibm.com/install/linux" && \
     mv linux ibmcloud-setup && \
     chmod +x ibmcloud-setup && \
     sh ibmcloud-setup
-
-RUN dnf clean all -y
 
 #USER 1001
 WORKDIR /opt/bastion
