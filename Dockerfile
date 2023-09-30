@@ -41,4 +41,4 @@ RUN wget "https://mirror.openshift.com/pub/openshift-v4/clients/rosa/latest/rosa
 
 #USER 1001
 WORKDIR /opt/bastion
-CMD ["sh", "-c", "tail -f /dev/null"]
+CMD ["/bin/sh"]
